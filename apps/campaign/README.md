@@ -9,5 +9,6 @@ urlpath=panel/apps/campaign/index
 ```
 
 The dashboard summarizes the manifest by module, cluster, date, and artifact
-type. Use it as the front door for campaign review.
-
+type. It includes compact coverage cards, Plotly coverage charts, and a
+filterable artifact table with provenance and public page links. Use it as the
+front door for campaign review.

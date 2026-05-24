@@ -9,9 +9,9 @@ Launch path:
 urlpath=panel/apps/studies/index
 ```
 
-The dashboard filters manifest entries by module and evidence type. Select an
-artifact and click the preview button to fetch a small public CSV/JSON artifact
-from OSN or GitHub.
+The dashboard filters manifest entries by module, cluster, role, and evidence
+type. Select an artifact and click the preview button to fetch a small public
+CSV/JSON artifact from OSN or GitHub.
 
 Module notebooks are provided for DataLoader, DDP, GDS, HPCG, HPL-MxP, and
 NCCL so a reviewer can start from either the combined dashboard or a specific

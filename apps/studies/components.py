@@ -21,10 +21,44 @@ def _entry_options(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return dict(sorted(options.items()))
 
 
-def _filter_frame(frame: pd.DataFrame, module: str, evidence_type: str) -> pd.DataFrame:
+def _summary_cards(frame: pd.DataFrame) -> pn.Row:
+    """Return compact study coverage cards."""
+    study_count = frame["study"].nunique() if "study" in frame else 0
+    canonical_count = (frame["role"] == "canonical").sum() if "role" in frame else 0
+    supporting_count = (frame["role"] == "supporting").sum() if "role" in frame else 0
+    planned_count = (frame["role"] == "planned").sum() if "role" in frame else 0
+    cards = [
+        ("Studies", study_count),
+        ("Canonical Entries", canonical_count),
+        ("Supporting Entries", supporting_count),
+        ("Planned Entries", planned_count),
+    ]
+    return pn.Row(
+        *[
+            pn.pane.Markdown(
+                f"### {value}\n{label}",
+                sizing_mode="stretch_width",
+            )
+            for label, value in cards
+        ],
+        sizing_mode="stretch_width",
+    )
+
+
+def _filter_frame(
+    frame: pd.DataFrame,
+    module: str,
+    cluster: str,
+    role: str,
+    evidence_type: str,
+) -> pd.DataFrame:
     filtered = frame
     if module != "All":
         filtered = filtered[filtered["module"] == module]
+    if cluster != "All":
+        filtered = filtered[filtered["cluster"] == cluster]
+    if role != "All":
+        filtered = filtered[filtered["role"] == role]
     if evidence_type != "All":
         filtered = filtered[filtered["evidence_type"] == evidence_type]
     return filtered
@@ -53,8 +87,12 @@ def build_dashboard(manifest: dict[str, Any]) -> pn.Column:
     pn.extension("tabulator", "plotly")
     frame = manifest_frame(manifest)
     modules = ["All"] + unique_values(manifest, "module")
+    clusters = ["All"] + unique_values(manifest, "cluster")
+    roles = ["All"] + unique_values(manifest, "role")
     evidence_types = ["All"] + unique_values(manifest, "evidence_type")
     module_select = pn.widgets.Select(label="Module", options=modules, value="All")
+    cluster_select = pn.widgets.Select(label="Cluster", options=clusters, value="All")
+    role_select = pn.widgets.Select(label="Role", options=roles, value="All")
     evidence_select = pn.widgets.Select(
         label="Evidence Type", options=evidence_types, value="All"
     )
@@ -67,9 +105,9 @@ def build_dashboard(manifest: dict[str, Any]) -> pn.Column:
     )
     load_button = pn.widgets.Button(label="Load selected artifact preview", color="primary")
 
-    @pn.depends(module_select, evidence_select)
-    def table(module: str, evidence_type: str):
-        visible = _filter_frame(frame, module, evidence_type)
+    @pn.depends(module_select, cluster_select, role_select, evidence_select)
+    def table(module: str, cluster: str, role: str, evidence_type: str):
+        visible = _filter_frame(frame, module, cluster, role, evidence_type)
         columns = [
             col
             for col in [
@@ -157,10 +195,17 @@ def build_dashboard(manifest: dict[str, Any]) -> pn.Column:
         "Study-level artifact links and provenance for published benchmark modules.",
         sizing_mode="stretch_width",
     )
-    controls = pn.Row(module_select, evidence_select, sizing_mode="stretch_width")
+    controls = pn.Row(
+        module_select,
+        cluster_select,
+        role_select,
+        evidence_select,
+        sizing_mode="stretch_width",
+    )
     chart = pn.pane.Plotly(count_chart(manifest, "evidence_type", "Artifacts By Evidence Type"))
     return pn.Column(
         headline,
+        _summary_cards(frame),
         controls,
         chart,
         table,

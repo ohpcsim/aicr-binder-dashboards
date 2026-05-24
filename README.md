@@ -40,6 +40,12 @@ The first version uses a hand-written manifest and schema. A generator from the
 public benchmark repository should be added after the schema and dashboards are
 stable.
 
+## Documentation
+
+- [Data contract](docs/data-contract.md)
+- [Binder deployment notes](docs/binder-deployment-notes.md)
+- [Current status](docs/status.md)
+
 ## Repository Layout
 
 ```text
