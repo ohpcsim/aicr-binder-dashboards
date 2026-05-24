@@ -12,5 +12,4 @@ def test_sample_manifest_validates():
 def test_sample_manifest_has_expected_modules():
     manifest = load_manifest()
     modules = {entry["module"] for entry in entries(manifest)}
-    assert {"dataloader", "ddp", "hpcg", "nccl", "gds"}.issubset(modules)
-
+    assert {"dataloader", "ddp", "gds", "hpcg", "hpl-mxp", "nccl"}.issubset(modules)

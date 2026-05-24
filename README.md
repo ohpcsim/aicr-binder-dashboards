@@ -45,7 +45,7 @@ stable.
 ```text
 .binder/                 Binder/repo2docker environment
 apps/campaign/           Campaign dashboard notebook and components
-apps/studies/            Study dashboard notebook and components
+apps/studies/            Study dashboard notebooks and components
 data/manifests/          Hand-written dashboard manifest
 data/schema/             Manifest JSON schema
 lib/                     Shared loading, provenance, and plotting helpers

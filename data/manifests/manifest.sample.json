@@ -132,6 +132,22 @@
       "metrics": ["read_gib_per_second"]
     },
     {
+      "id": "hpl-mxp-module-study-index-2026-05-24",
+      "title": "HPL-MxP module study index",
+      "module": "hpl-mxp",
+      "study": "module-study-index",
+      "cluster": "mixed",
+      "date": "2026-05-24",
+      "role": "planned",
+      "evidence_type": "module-study-index",
+      "artifact_type": "study-page",
+      "format": "markdown",
+      "url": "https://github.com/ohpcsim/aicr-public/blob/main/Cambridge/aicr-bench/docs/modules/hpl-mxp/studies.md",
+      "public_page": "https://github.com/ohpcsim/aicr-public/blob/main/Cambridge/aicr-bench/docs/modules/hpl-mxp/studies.md",
+      "notes": "Results-backed HPL-MxP dashboard entries should be added after the public study pages and artifact links are finalized.",
+      "metrics": ["tflops", "residual_status"]
+    },
+    {
       "id": "hpcg-planned-smoke-ladder-2026-05-24",
       "title": "HPCG diagnostic smoke ladder",
       "module": "hpcg",
@@ -149,4 +165,3 @@
     }
   ]
 }
-
