@@ -5,7 +5,7 @@ Purpose: show campaign-level public artifact coverage and provenance links.
 Launch path:
 
 ```text
-urlpath=panel/apps/campaign/index
+urlpath=/panel/campaign_dashboard
 ```
 
 The dashboard summarizes the manifest by module, cluster, date, and artifact

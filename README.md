@@ -15,14 +15,14 @@ This repository contains two public dashboard entrypoints:
 Use these Binder URL paths after the image builds:
 
 ```text
-urlpath=panel/apps/campaign/index
-urlpath=panel/apps/studies/index
+urlpath=/panel/campaign_dashboard
+urlpath=/panel/studies_dashboard
 ```
 
 Direct launch links:
 
-- [Campaign dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=panel/apps/campaign/index)
-- [Studies dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=panel/apps/studies/index)
+- [Campaign dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/campaign_dashboard)
+- [Studies dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/studies_dashboard)
 
 The dashboards read `data/manifests/manifest.sample.json` by default. Manifest
 entries point to public OSN or GitHub-hosted CSV/JSON artifacts and public study
@@ -50,6 +50,8 @@ stable.
 
 ```text
 .binder/                 Binder/repo2docker environment
+campaign_dashboard.py    Panel campaign dashboard entrypoint
+studies_dashboard.py     Panel studies dashboard entrypoint
 apps/campaign/           Campaign dashboard notebook and components
 apps/studies/            Study dashboard notebooks and components
 data/manifests/          Hand-written dashboard manifest

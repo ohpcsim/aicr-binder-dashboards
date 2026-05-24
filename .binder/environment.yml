@@ -6,3 +6,4 @@ dependencies:
   - pip
   - pip:
       - -e ..[test]
+      - jupyter-panel-proxy>=0.2.0

@@ -9,8 +9,8 @@ as a quick build-time sanity check.
 Preferred launch URL paths:
 
 ```text
-urlpath=panel/apps/campaign/index
-urlpath=panel/apps/studies/index
+urlpath=/panel/campaign_dashboard
+urlpath=/panel/studies_dashboard
 ```
 
 The studies dashboard fetches small public CSV/JSON artifacts from OSN or

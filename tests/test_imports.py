@@ -1,8 +1,10 @@
 def test_core_imports():
+    import campaign_dashboard
     import lib.manifest
     import lib.osn
     import lib.plots
     import lib.provenance
+    import studies_dashboard
 
     assert lib.manifest.DEFAULT_MANIFEST
 

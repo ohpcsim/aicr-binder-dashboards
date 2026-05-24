@@ -6,7 +6,7 @@ previews.
 Launch path:
 
 ```text
-urlpath=panel/apps/studies/index
+urlpath=/panel/studies_dashboard
 ```
 
 The dashboard filters manifest entries by module, cluster, role, and evidence

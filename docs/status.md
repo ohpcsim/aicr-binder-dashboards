@@ -5,8 +5,8 @@ still needs production artifact wiring.
 
 ## Ready Now
 
-- Launches two Binder entrypoints: the campaign dashboard and the studies
-  dashboard.
+- Launches two Binder entrypoints through `jupyter-panel-proxy`: the campaign
+  dashboard and the studies dashboard.
 - Uses a public sample manifest with DataLoader, DDP, NCCL, GDS, HPL-MxP, and
   HPCG entries.
 - Shows coverage cards, module/cluster filters, provenance links, public study
