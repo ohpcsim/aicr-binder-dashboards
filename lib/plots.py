@@ -115,8 +115,15 @@ def module_metric_chart(frame: pd.DataFrame, title: str):
             "read_gib_s",
             "read_gib_per_second",
             "write_gib_s",
+            "sequential_read_gib_s",
+            "sequential_write_gib_s",
+            "random_read_gib_s",
             "pflop_s",
             "olympic_pflop_s",
+            "ar_olympic_avg",
+            "rs_olympic_avg",
+            "ag_olympic_avg",
+            "a2a_olympic_avg",
             "busbw",
             "algbw",
             "throughput",
@@ -128,6 +135,9 @@ def module_metric_chart(frame: pd.DataFrame, title: str):
         limited = numeric.iloc[:, : min(4, len(numeric.columns))].reset_index(names="row")
         melted = limited.melt(id_vars="row", var_name="metric", value_name="value")
         return px.line(melted, x="row", y="value", color="metric", title=title, markers=True)
+    frame = frame.dropna(subset=[x, y])
+    if frame.empty:
+        return None
     color = best_axis(frame, ["platform", "cluster", "dashboard_study", "type", "backend", "profile"])
     return px.scatter(
         frame,

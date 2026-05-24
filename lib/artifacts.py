@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any
 
 import pandas as pd
+from pandas.api.types import is_numeric_dtype
 
 from lib.manifest import REPO_ROOT, entries
 from lib.osn import read_csv_url
@@ -14,8 +15,36 @@ from lib.osn import read_csv_url
 def coerce_numeric_columns(frame: pd.DataFrame) -> pd.DataFrame:
     """Return a copy with numeric-looking object columns converted."""
     converted = frame.copy()
+    skip = {
+        "backend",
+        "candidate",
+        "cluster",
+        "dashboard_cluster",
+        "dashboard_role",
+        "dashboard_study",
+        "dashboard_title",
+        "evidence",
+        "grid",
+        "input",
+        "job_ids",
+        "mode",
+        "node",
+        "node_group",
+        "notes",
+        "outcome",
+        "platform",
+        "profile",
+        "reading",
+        "result_page",
+        "run",
+        "sloppy_type",
+        "status",
+        "study",
+        "type",
+        "view",
+    }
     for column in converted.columns:
-        if converted[column].dtype != object:
+        if is_numeric_dtype(converted[column]) or column in skip:
             continue
         cleaned = (
             converted[column]
@@ -25,7 +54,7 @@ def coerce_numeric_columns(frame: pd.DataFrame) -> pd.DataFrame:
             .str.extract(r"([-+]?[0-9]*\.?[0-9]+)", expand=False)
         )
         numeric = pd.to_numeric(cleaned, errors="coerce")
-        if numeric.notna().sum() >= max(1, len(converted) // 3):
+        if numeric.notna().sum() > 0:
             converted[column] = numeric
     return converted
 
@@ -72,4 +101,4 @@ def concat_module_frames(manifest: dict[str, Any], module: str) -> pd.DataFrame:
     frames = module_local_csv_frames(manifest, module)
     if not frames:
         return pd.DataFrame()
-    return pd.concat(frames, ignore_index=True, sort=False)
+    return coerce_numeric_columns(pd.concat(frames, ignore_index=True, sort=False))
