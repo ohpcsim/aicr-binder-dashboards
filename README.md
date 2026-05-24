@@ -19,6 +19,11 @@ urlpath=panel/apps/campaign/index
 urlpath=panel/apps/studies/index
 ```
 
+Direct launch links:
+
+- [Campaign dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=panel/apps/campaign/index)
+- [Studies dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=panel/apps/studies/index)
+
 The dashboards read `data/manifests/manifest.sample.json` by default. Manifest
 entries point to public OSN or GitHub-hosted CSV/JSON artifacts and public study
 pages. The studies dashboard can fetch selected CSV/JSON entries on demand and

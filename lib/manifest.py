@@ -11,11 +11,20 @@ from jsonschema import Draft202012Validator
 
 DEFAULT_MANIFEST = Path("data/manifests/manifest.sample.json")
 DEFAULT_SCHEMA = Path("data/schema/manifest.schema.json")
+REPO_ROOT = Path(__file__).resolve().parents[1]
+
+
+def resolve_repo_path(path: str | Path) -> Path:
+    """Resolve a path from the caller cwd or repository root."""
+    resolved = Path(path)
+    if resolved.is_absolute() or resolved.exists():
+        return resolved
+    return REPO_ROOT / resolved
 
 
 def load_json(path: str | Path) -> dict[str, Any]:
     """Load a JSON object from a repository-relative or absolute path."""
-    resolved = Path(path)
+    resolved = resolve_repo_path(path)
     with resolved.open("r", encoding="utf-8") as handle:
         value = json.load(handle)
     if not isinstance(value, dict):
@@ -76,4 +85,3 @@ def count_by(manifest: dict[str, Any], field: str) -> dict[str, int]:
         value = str(entry.get(field, "unknown") or "unknown")
         counts[value] = counts.get(value, 0) + 1
     return dict(sorted(counts.items()))
-
