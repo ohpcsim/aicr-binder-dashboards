@@ -24,6 +24,7 @@ test = [
 
 [tool.setuptools]
 packages = ["lib", "apps", "apps.campaign", "apps.studies"]
+py-modules = ["campaign_dashboard", "studies_dashboard"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
