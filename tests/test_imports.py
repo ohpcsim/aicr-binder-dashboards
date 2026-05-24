@@ -17,3 +17,19 @@ def test_dashboard_components_import():
     assert apps.campaign.components.build_dashboard
     assert apps.studies.components.build_dashboard
 
+
+def test_dashboard_components_build():
+    import pytest
+
+    pytest.importorskip("panel")
+    from apps.campaign.components import build_dashboard as build_campaign
+    from apps.studies.components import build_dashboard as build_studies
+    from lib.manifest import load_manifest, validate_manifest
+
+    manifest = load_manifest()
+    validate_manifest(manifest)
+    campaign = build_campaign(manifest)
+    studies = build_studies(manifest)
+
+    assert len(campaign) >= 4
+    assert len(studies) >= 7

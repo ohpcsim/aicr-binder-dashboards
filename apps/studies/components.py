@@ -54,18 +54,18 @@ def build_dashboard(manifest: dict[str, Any]) -> pn.Column:
     frame = manifest_frame(manifest)
     modules = ["All"] + unique_values(manifest, "module")
     evidence_types = ["All"] + unique_values(manifest, "evidence_type")
-    module_select = pn.widgets.Select(name="Module", options=modules, value="All")
+    module_select = pn.widgets.Select(label="Module", options=modules, value="All")
     evidence_select = pn.widgets.Select(
-        name="Evidence Type", options=evidence_types, value="All"
+        label="Evidence Type", options=evidence_types, value="All"
     )
     entry_options = _entry_options(manifest)
     entry_select = pn.widgets.Select(
-        name="Artifact",
+        label="Artifact",
         options=entry_options,
         value=next(iter(entry_options.values()), {}),
         sizing_mode="stretch_width",
     )
-    load_button = pn.widgets.Button(name="Load selected artifact preview", button_type="primary")
+    load_button = pn.widgets.Button(label="Load selected artifact preview", color="primary")
 
     @pn.depends(module_select, evidence_select)
     def table(module: str, evidence_type: str):

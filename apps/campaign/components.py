@@ -26,8 +26,8 @@ def build_dashboard(manifest: dict[str, Any]) -> pn.Column:
     frame = manifest_frame(manifest)
     modules = ["All"] + unique_values(manifest, "module")
     clusters = ["All"] + unique_values(manifest, "cluster")
-    module_select = pn.widgets.Select(name="Module", options=modules, value="All")
-    cluster_select = pn.widgets.Select(name="Cluster", options=clusters, value="All")
+    module_select = pn.widgets.Select(label="Module", options=modules, value="All")
+    cluster_select = pn.widgets.Select(label="Cluster", options=clusters, value="All")
 
     @pn.depends(module_select, cluster_select)
     def table(module: str, cluster: str):
@@ -67,4 +67,3 @@ def build_dashboard(manifest: dict[str, Any]) -> pn.Column:
         sizing_mode="stretch_width",
     )
     return pn.Column(headline, controls, charts, table, sizing_mode="stretch_width")
-
