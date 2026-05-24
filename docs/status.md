@@ -7,6 +7,9 @@ still needs production artifact wiring.
 
 - Launches two Binder entrypoints through `jupyter-panel-proxy`: the campaign
   dashboard and the studies dashboard.
+- MyBinder build and launch were validated on 2026-05-24 from commit
+  `5d0b442`, with both `/panel/campaign_dashboard` and
+  `/panel/studies_dashboard` returning HTTP 200 inside the live Binder session.
 - Tries a public OSN `latest` manifest first and falls back to the bundled
   generated manifest if the remote manifest is unavailable.
 - Supports `manifest_url` query overrides and `AICR_DASHBOARD_MANIFEST_URL`
