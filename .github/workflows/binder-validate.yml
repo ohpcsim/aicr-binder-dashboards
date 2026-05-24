@@ -20,4 +20,7 @@ jobs:
         run: python -m compileall lib apps tests
       - name: Test
         run: pytest
-
+      - name: Execute dashboard notebooks
+        run: |
+          jupyter nbconvert --to notebook --execute --stdout apps/campaign/index.ipynb >/tmp/aicr-campaign-executed.ipynb
+          jupyter nbconvert --to notebook --execute --stdout apps/studies/index.ipynb >/tmp/aicr-studies-executed.ipynb
