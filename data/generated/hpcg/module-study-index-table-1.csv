@@ -1,0 +1,7 @@
+study,cluster,shape,what_it_tests,status_evidence_type
+Single-node GPU-count scaling,B200,"1, 2, 4, and 8 GPUs on one node","HPCG launch, validity, and intra-node scaling with one MPI rank per GPU.",planned
+Single-node GPU-count scaling,RTX PRO 6000,"1, 2, 4, and 8 GPUs on one node",Same row family as B200 under RTX topology and placement.,planned
+Process-grid comparison,B200 and RTX PRO 6000,"Reviewed process grids for 2, 4, and 8 ranks","Sensitivity to npx, npy, and npz choices at fixed GPU count.",planned
+Communication-mode comparison,B200 and RTX PRO 6000,"Fixed one-node shape, varied p2p",NVIDIA HPCG communication mode comparison under the same placement policy.,planned
+UCX/NIC-affinity diagnostic appendix,B200 only if needed,"Fixed one-node shape, varied UCX/NIC controls",Isolates placement or fabric-sensitive failures without promoting them as performance rows.,optional diagnostic
+Multi-node roadmap,B200 and RTX PRO 6000,2+ nodes after single-node path is stable,Extends the validated single-node shape to node-count scaling.,planned

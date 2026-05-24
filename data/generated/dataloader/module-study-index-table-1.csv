@@ -1,0 +1,10 @@
+study,input,backend,what_it_tests,role,results
+B200 single-GPU surface,canonical-224,PyTorch CPU,"Batch, worker, and prefetch plateau on one GPU.",Canonical,Results
+B200 one-node 8-GPU replicated,canonical-224,PyTorch CPU,Worker count selection across eight replicated ranks.,Canonical,Results
+B200 multi-node parameter selection,canonical-224,"PyTorch CPU, sharded",Two- and four-node parameter selection before scale probing.,Canonical,Results
+B200 2-16-node scale probe,canonical-224,"PyTorch CPU, sharded",Per-node throughput and rank balance through sixteen nodes.,Canonical,Results
+DALI standard-ImageNet optimization,canonical-224,DALI GPU decode,DALI versus tuned CPU at ordinary ImageNet shape.,Supporting,Results
+DALI large-JPEG optimization,derived-jpeg-1024,DALI GPU decode,"DALI batch, thread, and queue-depth tuning for large JPEG input.",Supporting,Results
+Tuned backend crossover,"canonical-224, derived-jpeg-1024",PyTorch CPU and DALI,Where the tuned backend choice changes by input size.,Supporting,Results
+Prepared-input ceilings,prepared-input-ceiling,NumPy uint8/fp16,Throughput ceiling after moving decode or preprocessing offline.,Supporting,Results
+Fixed-config DALI crossover,derived-jpeg size ladder,PyTorch CPU and DALI,Derived pre-resized JPEG representation evidence; explains why DALI can win on derived 224 while CPU still wins canonical ImageNet.,Appendix,Results

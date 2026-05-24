@@ -1,0 +1,3 @@
+platform,selected_one_node_row,multi_node_reading,study
+B200,"45,954 samples/s, 768/16/4, 4.19% rank imbalance","Best sixteen-node row is 384/16/6 at 584,032 samples/s; per-node throughput tapers to 36,502 samples/s/node.",B200 scale probe
+RTX Pro 6000,"48,974 samples/s, 768/16/6, 4.39% rank imbalance","Best eight-node row is 512/16/4 at 338,146 samples/s; the best balance row is 640/16/4.",RTX scale probe

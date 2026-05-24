@@ -1,0 +1,5 @@
+platform,endpoint,best_cpu_config,cpu_samples_s,best_dali_config,dali_samples_s,dali_cpu
+B200,ImageNet,"batch 768, workers 16, prefetch 4","45,800","batch 768, threads 8, queue 2","19,982",0.44x
+B200,1024 JPEG,"batch 384, workers 16, prefetch 4","16,048","batch 768, threads 8, queue 2","49,911",3.11x
+RTX Pro 6000,ImageNet,"batch 768, workers 16, prefetch 6","49,200","batch 768, threads 8, queue 4","20,107",0.41x
+RTX Pro 6000,1024 JPEG,"batch 384, workers 16, prefetch 8","16,719","batch 768, threads 8, queue 1","49,257",2.95x

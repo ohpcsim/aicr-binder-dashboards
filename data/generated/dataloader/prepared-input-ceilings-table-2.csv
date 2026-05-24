@@ -1,0 +1,11 @@
+platform,size,best_uint8_row,uint8_samples_s,best_fp16_row,fp16_samples_s,fp16_uint8
+B200,224,batch 128,"66,626",batch 512,"143,202",2.15x
+B200,384,batch 128,"23,023",batch 256,"49,832",2.16x
+B200,512,batch 128,"12,035",batch 256,"28,321",2.35x
+B200,768,batch 128,"4,874",batch 256,"12,797",2.63x
+B200,1024,batch 128,"2,725",batch 128,"7,494",2.75x
+RTX Pro 6000,224,batch 128,"66,861",batch 384,"139,500",2.09x
+RTX Pro 6000,384,batch 128,"23,053",batch 256,"49,831",2.16x
+RTX Pro 6000,512,batch 128,"11,992",batch 256,"28,309",2.36x
+RTX Pro 6000,768,batch 128,"4,893",batch 256,"12,906",2.64x
+RTX Pro 6000,1024,batch 128,"2,720",batch 128,"7,523",2.77x

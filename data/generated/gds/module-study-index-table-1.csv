@@ -1,0 +1,6 @@
+study,cluster,profile,artifact_bundle,purpose
+Single-node small,B200,small,gds-b200-single-node-small-2026-05-10.tar.gz,Baseline teaching run.
+Single-node medium,B200,medium,gds-b200-single-node-medium-2026-05-10.tar.gz,Extended validation run.
+Single-node large,B200,large,gds-b200-single-node-large-2026-05-10.tar.gz,Full throughput characterization.
+Focused serial fleet olympic,B200,medium,gds-b200-focused-serial-fleet-olympic-2026-05-11.tar.gz,Five-node benchmark-mode fleet result.
+Custom gdsio,B200,custom,gds-b200-custom-gdsio-2026-05-10.tar.gz,Custom primitive command teaching.

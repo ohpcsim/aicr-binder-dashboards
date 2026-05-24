@@ -1,0 +1,3 @@
+platform,cpu_anchor
+B200,"batch 768, workers 16, prefetch 4"
+RTX Pro 6000,"batch 768, workers 16, prefetch 6"

@@ -1,0 +1,5 @@
+platform,endpoint,pytorch_cpu_images_s,dali_images_s,reading
+B200,canonical-224,"33,114","31,980",CPU remains ahead.
+B200,derived-jpeg-1024,"6,431","30,480",DALI wins by 4.74x.
+RTX Pro 6000,canonical-224,"18,502","17,979",CPU remains slightly ahead.
+RTX Pro 6000,derived-jpeg-1024,"5,504","16,484",DALI wins by 3.00x.

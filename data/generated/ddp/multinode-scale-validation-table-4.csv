@@ -1,0 +1,5 @@
+nodes,jobs,olympic_img_s,per_node_img_s,olympic_data_wait,reading
+1,26571-26575,"31,536","31,536",0.045s,One-node anchor with the tuned queue-depth shape.
+2,26576-26580,"60,071","30,036",0.054s,Corrects the original B200 two-node cliff.
+4,26581-26585,"78,007","19,502",0.121s,More than 2x the original queue-depth 2 four-node row.
+8,26586-26590,"83,207","10,401",0.379s,Extends the diagnostic to eight nodes; input wait rises again.

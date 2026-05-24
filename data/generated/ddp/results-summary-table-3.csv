@@ -1,0 +1,5 @@
+platform,candidate,1_node_img_s,2_node_img_s,4_node_img_s,4_node_efficiency,reading
+B200,ImageNet 224 PyTorch CPU,"33,114","57,780","94,997",72%,"Scales usefully, with expected per-node taper."
+B200,Derived 1024 JPEG DALI qd1,"31,536","60,071","78,007",62%,Queue-depth tuning corrects the earlier B200 input-wait pattern through four nodes.
+RTX Pro 6000,ImageNet 224 PyTorch CPU,"18,502","34,323","62,146",84%,Scales cleanly through 4 nodes.
+RTX Pro 6000,Derived 1024 JPEG DALI qd1,"16,484","32,116","61,352",93%,Large-JPEG DALI candidate scales cleanly.

@@ -1,0 +1,7 @@
+view,nodes,batch,workers,prefetch,samples_s,samples_s_node,rank_imbalance,note
+Best two-node retained row,2,640,16,4,"90,823","45,412",4.36,Highest balanced two-node row in the rendered set.
+Best two-node balance row,2,640,16,8,"90,036","45,018",3.54,Slightly lower throughput with the lowest retained imbalance among 16 worker two-node rows.
+Best four-node retained row,4,512,16,6,"177,871","44,468",4.55,Highest four-node row below the retained imbalance threshold.
+Best four-node balance row,4,512,16,8,"177,281","44,320",4.18,"Nearly the same throughput as 512/16/6, with lower retained imbalance."
+Larger-batch comparison row,4,640,16,4,"171,323","42,831",4.56,"Balanced, but lower throughput than 512/16/{6,8}."
+Lower-worker comparison row,4,512,12,6,"152,908","38,227",4.37,"Balanced, but much slower than 16 workers."

@@ -49,6 +49,13 @@
           "format": {"type": "string", "enum": ["csv", "json", "markdown", "tar.gz", "sha256", "other"]},
           "url": {"type": "string", "format": "uri"},
           "public_page": {"type": "string", "format": "uri"},
+          "provenance_url": {"type": "string"},
+          "checksum_url": {"type": "string"},
+          "bundle_url": {"type": "string"},
+          "local_path": {"type": "string"},
+          "source_page": {"type": "string"},
+          "source_table": {"type": "integer", "minimum": 1},
+          "source_kind": {"type": "string"},
           "commit": {"type": "string"},
           "notes": {"type": "string"},
           "metrics": {
@@ -60,4 +67,3 @@
     }
   }
 }
-

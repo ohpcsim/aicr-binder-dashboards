@@ -1,0 +1,3 @@
+platform,dali_finalist,olympic_images_s,repeat_count,job_ids
+B200,"batch 768, threads 8, queue 2","49,911",5,25228-25232
+RTX Pro 6000,"batch 768, threads 8, queue 1","49,257",5,25238-25242

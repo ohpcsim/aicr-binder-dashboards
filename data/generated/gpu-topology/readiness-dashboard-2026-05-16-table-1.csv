@@ -1,0 +1,3 @@
+cluster,nodes_considered,passed,skipped,expected_gpus_per_node,fleet_consistency
+B200,30,30,0,8,30/30 majority signature
+RTX Pro 6000,18,16,2,8,16/16 majority signature

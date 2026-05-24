@@ -1,4 +1,5 @@
-def test_core_imports():
+def test_core_imports(monkeypatch):
+    monkeypatch.setenv("AICR_DASHBOARD_SKIP_DEFAULT_REMOTE", "1")
     import campaign_dashboard
     import lib.manifest
     import lib.osn

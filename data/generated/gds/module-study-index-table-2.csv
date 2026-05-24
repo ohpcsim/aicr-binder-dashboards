@@ -1,0 +1,5 @@
+study,cluster,profile,artifact_bundle,purpose
+Single-node small,RTX,small,gds-rtx-single-node-small-2026-05-10.tar.gz,RTX baseline teaching run.
+Single-node medium,RTX,medium,gds-rtx-single-node-medium-2026-05-10.tar.gz,RTX extended validation run.
+Single-node large,RTX,large,gds-rtx-single-node-large-2026-05-10.tar.gz,RTX full throughput characterization.
+Focused serial fleet olympic,RTX,medium,gds-rtx-focused-serial-fleet-olympic-2026-05-23.tar.gz,Five-node staggered fleet result.

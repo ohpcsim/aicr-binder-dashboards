@@ -7,31 +7,41 @@ still needs production artifact wiring.
 
 - Launches two Binder entrypoints through `jupyter-panel-proxy`: the campaign
   dashboard and the studies dashboard.
-- Uses a public sample manifest with DataLoader, DDP, NCCL, GDS, HPL-MxP, and
-  HPCG entries.
-- Shows coverage cards, module/cluster filters, provenance links, public study
-  links, and simple Plotly coverage charts.
+- Tries a public OSN `latest` manifest first and falls back to the bundled
+  generated manifest if the remote manifest is unavailable.
+- Supports `manifest_url` query overrides and `AICR_DASHBOARD_MANIFEST_URL`
+  environment overrides.
+- Uses a generated manifest with DataLoader, DDP, NCCL, GDS, GPU Topology,
+  Elbencho, HPL-MxP, and HPCG entries.
+- Shows coverage cards, module/cluster/role/evidence/date filters,
+  provenance links, public study links, and Plotly coverage charts.
+- Provides module views for DataLoader, DDP, NCCL, GDS, HPL-MxP, and HPCG.
 - Lets a reader preview small public CSV and JSON artifacts on demand.
+- Includes small CSV tables extracted from public Markdown result tables for
+  Binder-side plotting when no direct public CSV exists.
 - Validates the manifest schema, dashboard imports, URL shape, and notebook
   execution in CI.
 
-## Seed Manifest Limits
+## Current Limits
 
-- The manifest is hand-written and intentionally small.
-- HPL-MxP and HPCG entries are marked as planned until results-backed public
-  study pages and artifacts are finalized.
+- The OSN `latest` manifest is the intended remote source. Until it is
+  published, dashboards use the bundled generated manifest.
+- HPL-MxP FP8/FP4 rows remain pending revision and should not be interpreted as
+  final dashboard evidence.
+- HPCG entries remain planned until results-backed public study pages and
+  artifacts are finalized.
 - Large tarballs remain links only; the dashboard does not download or cache
   raw benchmark bundles.
-- Numeric plots are generic until each module has a stable exported summary
-  schema.
+- Some module plots are generated from public Markdown tables, so provenance
+  links remain the authoritative source.
 
 ## Next Production Steps
 
-- Generate the manifest from the public benchmark repository rather than
-  editing it by hand.
-- Add module-specific plot builders for the DataLoader/DDP handoff, NCCL/GDS
-  throughput, HPL-MxP precision studies, and HPCG diagnostic rows.
-- Add a small pinned cache only if BinderHub cannot reach the public OSN
-  artifact URLs.
+- Publish the validated generated manifest to the OSN `dashboard-manifests`
+  `latest` path.
+- Add more module-specific plot builders as each module settles on stable
+  exported summary schemas.
+- Add a small pinned cache only if BinderHub cannot reach public OSN artifact
+  URLs.
 - Replace planned HPL-MxP and HPCG entries with results-backed entries after
   their public study pages and artifacts are complete.

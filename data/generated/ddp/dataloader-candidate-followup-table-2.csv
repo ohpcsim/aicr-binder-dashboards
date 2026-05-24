@@ -1,0 +1,5 @@
+platform,endpoint,pytorch_cpu_images_s,dali_images_s,dali_pytorch,outcome
+B200,ImageNet,"33,114","31,980",0.97x,CPU remains ahead.
+B200,1024 JPEG,"6,431","30,480",4.74x,DALI remains strong.
+RTX Pro 6000,ImageNet,"18,502","17,979",0.97x,CPU remains slightly ahead.
+RTX Pro 6000,1024 JPEG,"5,504","16,484",3.00x,DALI remains strong.

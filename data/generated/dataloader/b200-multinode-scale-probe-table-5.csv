@@ -1,0 +1,6 @@
+view,nodes,batch,workers,prefetch,samples_s,samples_s_node,rank_imbalance,note
+Best two-node retained row,2,640,16,4,"90,823","45,412",4.36,Highest two-node throughput in the selected comparison set.
+Best four-node retained row,4,512,16,6,"177,871","44,468",4.55,Highest four-node throughput in the selected comparison set.
+Best eight-node retained row,8,512,16,8,"324,174","40,522",7.08,Highest eight-node throughput among the selected rows.
+Best sixteen-node retained row,16,384,16,6,"584,032","36,502",9.06,Highest sixteen-node throughput and highest sixteen-node samples/s/node.
+Lowest sixteen-node imbalance row,16,384,16,8,"583,943","36,496",8.51,Lowest retained imbalance among the sixteen-node rows and essentially tied on throughput.

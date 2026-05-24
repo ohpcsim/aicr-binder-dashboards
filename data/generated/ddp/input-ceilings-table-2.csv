@@ -1,0 +1,13 @@
+platform,size,input,batch_rank,images_s,reading
+B200,224,NumPy uint8,128,"20,758","Decode removed, runtime tensor prep remains."
+B200,224,NumPy fp16,512,"27,590",More preparation is offline.
+B200,224,Synthetic GPU,768,"44,845",Input path removed.
+B200,1024,NumPy uint8,16,"1,401",Full-resolution training.
+B200,1024,NumPy fp16,16,"1,775","Full-resolution training, near compute ceiling."
+B200,1024,Synthetic GPU,16,"2,003",Full-resolution compute/input-free ceiling.
+RTX Pro 6000,224,NumPy uint8,128,"14,555","Decode removed, runtime tensor prep remains."
+RTX Pro 6000,224,NumPy fp16,384,"16,415",More preparation is offline.
+RTX Pro 6000,224,Synthetic GPU,768,"20,463",Input path removed.
+RTX Pro 6000,1024,NumPy uint8,16,833,Full-resolution training.
+RTX Pro 6000,1024,NumPy fp16,16,937,"Full-resolution training, near compute ceiling."
+RTX Pro 6000,1024,Synthetic GPU,16,993,Full-resolution compute/input-free ceiling.

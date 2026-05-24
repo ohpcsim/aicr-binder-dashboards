@@ -8,6 +8,15 @@ The dashboard manifest is a small JSON file with a `schema_version`,
 public CSV, JSON, Markdown page, tarball, or checksum that supports a benchmark
 campaign or study view.
 
+Dashboards load manifests in this order:
+
+1. `manifest_url` query parameter.
+2. `AICR_DASHBOARD_MANIFEST_URL`.
+3. Public OSN `latest` manifest.
+4. Bundled generated manifest.
+
+Every dashboard shows the active manifest source and `generated_at` value.
+
 Required fields:
 
 - `id`: stable dashboard identifier.
@@ -25,6 +34,11 @@ Required fields:
 - `url`: public artifact URL.
 - `public_page`: public GitHub study or module page.
 
-Optional fields such as `commit`, `notes`, and `metrics` provide dashboard
-context without forcing every module to share the same numeric schema.
+Optional fields such as `provenance_url`, `checksum_url`, `bundle_url`,
+`local_path`, `source_page`, `source_table`, `source_kind`, `commit`, `notes`,
+and `metrics` provide dashboard context without forcing every module to share
+the same numeric schema.
 
+`local_path` is used only for small CSV tables bundled in this dashboard repo.
+Those tables are extracted from public Markdown study pages for plotting; the
+linked public page and OSN artifacts remain the authoritative evidence.

@@ -1,0 +1,3 @@
+metric,n,mean,median,stddev,min,p10,p25,p75,p90,max,mad,cv
+Sequential Read GiB/s,1,8.698,8.698,0.000,8.698,8.698,8.698,8.698,8.698,8.698,0.000,0.000
+Sequential Write GiB/s,1,5.150,5.150,0.000,5.150,5.150,5.150,5.150,5.150,5.150,0.000,0.000

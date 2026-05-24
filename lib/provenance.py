@@ -19,6 +19,12 @@ def artifact_link(entry: dict[str, Any]) -> str:
     return f"[{label}]({url})" if url else label
 
 
+def optional_link(entry: dict[str, Any], field: str, label: str) -> str:
+    """Return a Markdown link for an optional URL field."""
+    url = str(entry.get(field, "") or "")
+    return f"**{label}:** [{field}]({url})" if url else ""
+
+
 def provenance_markdown(entry: dict[str, Any]) -> str:
     """Format key provenance fields for display."""
     parts = [
@@ -34,5 +40,16 @@ def provenance_markdown(entry: dict[str, Any]) -> str:
         parts.append(f"**Page:** {public_link(entry)}")
     if entry.get("url"):
         parts.append(f"**Artifact:** {artifact_link(entry)}")
+    for field, label in (
+        ("provenance_url", "Provenance"),
+        ("checksum_url", "Checksum"),
+        ("bundle_url", "Bundle"),
+    ):
+        rendered = optional_link(entry, field, label)
+        if rendered:
+            parts.append(rendered)
+    if entry.get("source_kind"):
+        parts.append(f"**Source kind:** `{entry['source_kind']}`")
+    if entry.get("local_path"):
+        parts.append(f"**Bundled path:** `{entry['local_path']}`")
     return "  \n".join(parts)
-

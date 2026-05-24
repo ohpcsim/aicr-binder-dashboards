@@ -1,0 +1,5 @@
+nodes,gpus,samples,passes,status,ar_olympic_avg,rs_olympic_avg,ag_olympic_avg,a2a_olympic_avg,wrong
+2,16,12/12,12/12,passed,399.868,217.261,217.186,50.467,0
+4,32,12/12,12/12,passed,217.720,217.278,217.213,33.285,0
+8,64,12/12,12/12,passed,217.835,215.893,216.128,28.648,0
+16,128,12/12,12/12,passed,202.709,215.914,216.137,26.580,0

@@ -1,0 +1,6 @@
+view,nodes,batch,workers,prefetch,samples_s,samples_s_node,rank_imbalance,note
+Best two-node retained row,2,640,16,8,"96,146","48,073",4.07,Highest balanced two-node row in the cumulative view.
+Best four-node throughput row,4,512,16,4,"186,726","46,681",6.99,"Highest total throughput, but balance is clearly over the balance threshold."
+Best four-node compromise row,4,512,16,6,"186,386","46,597",5.91,"Nearly the same throughput as 512/16/4, lower imbalance, and very low retained jitter."
+Lower-batch comparison row,4,384,16,4,"183,173","45,793",6.32,Useful balance comparison for the eight-node probe.
+Lower-worker comparison row,4,512,12,4,"160,504","40,126",5.76,Lower workers do not recover enough balance to justify the throughput loss.

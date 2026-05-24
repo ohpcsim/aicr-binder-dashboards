@@ -1,0 +1,5 @@
+study,platform,sloppy_type,evidence,result_page
+Workspace weak scaling,B200 / RTX PRO 6000,FP16,Five-sample Olympic aggregate,May 16 FP16 weak-scaling results
+Precision comparison rows,B200,FP8,Single-sample staged rows,May 23 precision rows
+Precision comparison rows,B200,FP4,Single-sample staged rows,May 23 precision rows
+Precision comparison rows,RTX PRO 6000,FP8,Single-sample staged rows,May 23 precision rows

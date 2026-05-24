@@ -1,0 +1,3 @@
+cluster,backend,samples_s,aggregation
+B200,PyTorch CPU DataLoader,"47,408",5 Olympic
+RTX Pro 6000,PyTorch CPU DataLoader,"50,442",5 Olympic

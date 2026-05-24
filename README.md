@@ -3,7 +3,7 @@
 Purpose: provide Binder-ready dashboards for the public AICR Cambridge benchmark
 campaign and module study results.
 
-This repository contains two public dashboard entrypoints:
+This repository contains two public Panel dashboard entrypoints:
 
 - Campaign dashboard: high-level coverage and artifact navigation across the
   Cambridge benchmark campaign.
@@ -24,21 +24,30 @@ Direct launch links:
 - [Campaign dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/campaign_dashboard)
 - [Studies dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/studies_dashboard)
 
-The dashboards read `data/manifests/manifest.sample.json` by default. Manifest
-entries point to public OSN or GitHub-hosted CSV/JSON artifacts and public study
-pages. The studies dashboard can fetch selected CSV/JSON entries on demand and
-show a quick table/numeric profile. Cached data is not committed.
+The dashboards try to read a public OSN `latest` manifest first, then fall back
+to the bundled generated manifest at
+`data/manifests/aicr-public.generated.json`. A user can override the manifest
+without changing code by passing `manifest_url` in the URL query string or by
+setting `AICR_DASHBOARD_MANIFEST_URL`.
+
+Manifest entries point to public OSN or GitHub-hosted CSV/JSON artifacts,
+public study pages, provenance JSON, checksums, and small generated CSV tables
+extracted from public Markdown study pages. The studies dashboard can fetch
+selected CSV/JSON entries on demand and show a table, numeric profile, and
+quick chart. Large tarballs stay linked rather than downloaded.
 
 ## Local Checks
 
 ```bash
-python -m compileall lib apps tests
+.venv/bin/python -m compileall lib apps tests scripts
 pytest
 ```
 
-The first version uses a hand-written manifest and schema. A generator from the
-public benchmark repository should be added after the schema and dashboards are
-stable.
+Refresh the bundled manifest from the public benchmark repository with:
+
+```bash
+.venv/bin/python scripts/generate_manifest.py
+```
 
 ## Documentation
 
@@ -54,9 +63,11 @@ campaign_dashboard.py    Panel campaign dashboard entrypoint
 studies_dashboard.py     Panel studies dashboard entrypoint
 apps/campaign/           Campaign dashboard notebook and components
 apps/studies/            Study dashboard notebooks and components
-data/manifests/          Hand-written dashboard manifest
+data/generated/          Small CSVs extracted from public Markdown result tables
+data/manifests/          Generated and sample dashboard manifests
 data/schema/             Manifest JSON schema
 lib/                     Shared loading, provenance, and plotting helpers
+scripts/                 Manifest generation utilities
 tests/                   Local validation
 docs/                    Data contract and Binder notes
 ```
