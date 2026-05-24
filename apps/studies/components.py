@@ -21,6 +21,18 @@ def _entry_options(manifest: dict[str, Any]) -> dict[str, dict[str, Any]]:
     return dict(sorted(options.items()))
 
 
+def _module_manifest(manifest: dict[str, Any], module: str) -> dict[str, Any]:
+    """Return a manifest containing only one module."""
+    filtered = [
+        entry for entry in entries(manifest) if entry.get("module") == module
+    ]
+    return {
+        **manifest,
+        "description": f"{manifest.get('description', 'Dashboard manifest')} ({module})",
+        "artifacts": filtered,
+    }
+
+
 def _summary_cards(frame: pd.DataFrame) -> pn.Row:
     """Return compact study coverage cards."""
     study_count = frame["study"].nunique() if "study" in frame else 0
@@ -216,3 +228,17 @@ def build_dashboard(manifest: dict[str, Any]) -> pn.Column:
         artifact_preview,
         sizing_mode="stretch_width",
     )
+
+
+def build_module_dashboard(manifest: dict[str, Any], module: str) -> pn.Column:
+    """Build a study dashboard focused on a single module."""
+    focused = _module_manifest(manifest, module)
+    dashboard = build_dashboard(focused)
+    dashboard.insert(
+        1,
+        pn.pane.Markdown(
+            f"Focused view for `{module}` entries from the dashboard manifest.",
+            sizing_mode="stretch_width",
+        ),
+    )
+    return dashboard

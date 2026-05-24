@@ -14,5 +14,5 @@ type. Select an artifact and click the preview button to fetch a small public
 CSV/JSON artifact from OSN or GitHub.
 
 Module notebooks are provided for DataLoader, DDP, GDS, HPCG, HPL-MxP, and
-NCCL so a reviewer can start from either the combined dashboard or a specific
-module lens.
+NCCL. Each one launches the same study dashboard focused to that module, so a
+reviewer can start from either the combined dashboard or a specific module lens.
