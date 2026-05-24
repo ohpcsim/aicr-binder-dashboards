@@ -19,7 +19,12 @@ urlpath=/panel/campaign_dashboard
 urlpath=/panel/studies_dashboard
 ```
 
-Direct launch links:
+Fast launch links on the Harmony BinderHub:
+
+- [Campaign dashboard](https://binderhub.harmonyhpc.io/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/campaign_dashboard)
+- [Studies dashboard](https://binderhub.harmonyhpc.io/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/studies_dashboard)
+
+Public MyBinder fallback links:
 
 - [Campaign dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/campaign_dashboard)
 - [Studies dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/studies_dashboard)
