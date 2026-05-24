@@ -56,3 +56,19 @@ def evidence_scatter(manifest: dict[str, Any]):
         title="Artifact Coverage By Module And Date",
     )
 
+
+def numeric_preview_chart(frame: pd.DataFrame, title: str = "Numeric Preview"):
+    """Build a small line chart for the first numeric columns in a CSV artifact."""
+    numeric = frame.select_dtypes(include="number")
+    if numeric.empty:
+        return None
+    limited = numeric.iloc[:100, :4].reset_index(names="row")
+    melted = limited.melt(id_vars="row", var_name="metric", value_name="value")
+    return px.line(
+        melted,
+        x="row",
+        y="value",
+        color="metric",
+        title=title,
+        markers=True,
+    )

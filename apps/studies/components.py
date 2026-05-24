@@ -9,7 +9,7 @@ import panel as pn
 
 from lib.manifest import entries, unique_values
 from lib.osn import read_csv_url, read_json_url
-from lib.plots import count_chart, manifest_frame
+from lib.plots import count_chart, manifest_frame, numeric_preview_chart
 from lib.provenance import provenance_markdown
 
 
@@ -180,7 +180,16 @@ def build_dashboard(manifest: dict[str, Any]) -> pn.Column:
                     sizing_mode="stretch_width",
                     disabled=True,
                 )
-                return pn.Column("### Artifact Preview", preview, "### Numeric Profile", profile)
+                chart = numeric_preview_chart(frame, "Selected CSV Numeric Preview")
+                if chart is None:
+                    return pn.Column("### Artifact Preview", preview, "### Numeric Profile", profile)
+                return pn.Column(
+                    "### Artifact Preview",
+                    preview,
+                    pn.pane.Plotly(chart),
+                    "### Numeric Profile",
+                    profile,
+                )
             if artifact_format == "json":
                 value = read_json_url(str(entry["url"]))
                 frame = _json_preview(value)

@@ -7,6 +7,16 @@ def test_core_imports():
     assert lib.manifest.DEFAULT_MANIFEST
 
 
+def test_numeric_preview_chart_handles_numeric_frames():
+    import pandas as pd
+
+    from lib.plots import numeric_preview_chart
+
+    chart = numeric_preview_chart(pd.DataFrame({"a": [1, 2], "b": [3.5, 4.5]}))
+    assert chart is not None
+    assert numeric_preview_chart(pd.DataFrame({"label": ["x", "y"]})) is None
+
+
 def test_dashboard_components_import():
     import pytest
 
