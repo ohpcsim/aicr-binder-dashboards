@@ -1,0 +1,16 @@
+name: aicr-binder-dashboards
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+      - -e .
+      - jsonschema>=4.22
+      - jupyterlab>=4.2
+      - pandas>=2.2
+      - panel>=1.5
+      - plotly>=5.22
+      - requests>=2.32
+      - pytest>=8.2
+
