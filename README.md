@@ -11,8 +11,9 @@ Jupyter teaching deck:
 - Studies dashboard: module and study-level views for DataLoader, DDP, HPCG,
   HPL-MxP, NCCL, and GDS artifacts.
 - DataLoader teaching deck: a live JupyterLab slide deck for support staff
-  explaining input-pipeline choices, tuning knobs, prepared-input tradeoffs,
-  and DDP training validation.
+  explaining input-pipeline queueing, throughput/imbalance heatmaps,
+  candidate frontiers, scale plots, prepared-input tradeoffs, and DDP
+  training validation.
 
 ## Binder Launch Paths
 

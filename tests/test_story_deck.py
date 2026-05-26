@@ -1,6 +1,8 @@
 import json
 from pathlib import Path
 
+from apps.story.dataloader_figures import FIGURE_FILENAMES, PUBLIC_COMMIT
+
 
 DECK = Path("apps/story/dataloader_ddp_story.ipynb")
 
@@ -24,8 +26,8 @@ def test_story_deck_exists_and_has_slides():
         for cell in cells
     ]
 
-    assert len(cells) >= 24
-    assert slide_types.count("slide") >= 20
+    assert len(cells) >= 60
+    assert slide_types.count("slide") >= 55
     assert "rise" in data.get("metadata", {})
 
 
@@ -33,16 +35,19 @@ def test_story_deck_scope_and_guardrails():
     text = deck_text()
 
     required = [
-        "DataLoader and DDP lessons",
-        "The Toll Booth Model",
-        "Interactive Moment 1",
-        "Interactive Moment 2",
-        "Interactive Moment 3",
-        "Interactive Moment 4",
+        "parallel queueing system",
+        "Heatmaps Are The Story",
+        "throughput heatmaps show the plateau",
+        "imbalance heatmaps show the hidden distributed cost",
+        "candidate scatter plots show the frontier",
+        "Normal DALI JPEG Is Not GDS",
         "canonical-224",
         "derived-jpeg-1024",
         "DataLoader-only throughput selects candidates",
         "Synthetic GPU input removes the real input path",
+        "Do not say DALI always wins",
+        "Do not say DataLoader-only wins are training wins",
+        "Do not recommend prepared fp16 as a general recipe",
         "Do not claim the normal DALI JPEG path uses GDS",
     ]
     for phrase in required:
@@ -68,3 +73,25 @@ def test_story_deck_has_interactive_backbone():
         assert function_name in text
 
     assert text.count("updatemenus") >= 5
+
+
+def test_story_deck_includes_all_public_dataloader_figures():
+    text = deck_text()
+
+    assert len(FIGURE_FILENAMES) == 53
+    assert PUBLIC_COMMIT in text
+
+    for filename in FIGURE_FILENAMES:
+        assert filename in text
+
+    required_families = [
+        "throughput-matrix",
+        "imbalance-matrix",
+        "candidate-scatter",
+        "samples-per-node",
+        "backend-dali-crossover",
+        "prepared-input-finalist",
+    ]
+    for family in required_families:
+        assert any(family in filename for filename in FIGURE_FILENAMES)
+        assert family in text

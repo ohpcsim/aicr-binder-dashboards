@@ -9,7 +9,8 @@ still needs production artifact wiring.
   dashboard and the studies dashboard.
 - Provides a DataLoader teaching deck at
   `apps/story/dataloader_ddp_story.ipynb` for live JupyterLab presentation
-  with Plotly interactions and DDP validation handoff slides.
+  with Plotly interactions, public DataLoader heatmaps, imbalance plots,
+  candidate frontiers, scale plots, and DDP validation handoff slides.
 - MyBinder build and launch were validated on 2026-05-24 from commit
   `5d0b442`, with both `/panel/campaign_dashboard` and
   `/panel/studies_dashboard` returning HTTP 200 inside the live Binder session.
@@ -39,6 +40,8 @@ still needs production artifact wiring.
 - The story deck is DataLoader-first; DDP appears only as
   training-validation handoff evidence. Other modules remain in the dashboard
   views but outside the story narrative.
+- The deck treats the input pipeline as a parallel queueing system and makes
+  throughput/imbalance plot reading the central teaching path.
 - Large tarballs remain links only; the dashboard does not download or cache
   raw benchmark bundles.
 - Some module plots are generated from public Markdown tables, so provenance
