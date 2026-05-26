@@ -3,12 +3,16 @@
 Purpose: provide Binder-ready dashboards for the public AICR Cambridge benchmark
 campaign and module study results.
 
-This repository contains two public Panel dashboard entrypoints:
+This repository contains two public Panel dashboard entrypoints and one guided
+Jupyter teaching deck:
 
 - Campaign dashboard: high-level coverage and artifact navigation across the
   Cambridge benchmark campaign.
 - Studies dashboard: module and study-level views for DataLoader, DDP, HPCG,
   HPL-MxP, NCCL, and GDS artifacts.
+- DataLoader teaching deck: a live JupyterLab slide deck for support staff
+  explaining input-pipeline choices, tuning knobs, prepared-input tradeoffs,
+  and DDP training validation.
 
 ## Binder Launch Paths
 
@@ -17,17 +21,20 @@ Use these Binder URL paths after the image builds:
 ```text
 urlpath=/panel/campaign_dashboard
 urlpath=/panel/studies_dashboard
+urlpath=/lab/tree/apps/story/dataloader_ddp_story.ipynb
 ```
 
 Fast launch links on the Harmony BinderHub:
 
 - [Campaign dashboard](https://binderhub.harmonyhpc.io/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/campaign_dashboard)
 - [Studies dashboard](https://binderhub.harmonyhpc.io/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/studies_dashboard)
+- [DataLoader teaching deck](https://binderhub.harmonyhpc.io/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/lab/tree/apps/story/dataloader_ddp_story.ipynb)
 
 Public MyBinder fallback links:
 
 - [Campaign dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/campaign_dashboard)
 - [Studies dashboard](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/panel/studies_dashboard)
+- [DataLoader teaching deck](https://mybinder.org/v2/gh/ohpcsim/aicr-binder-dashboards/main?urlpath=/lab/tree/apps/story/dataloader_ddp_story.ipynb)
 
 The dashboards try to read a public OSN `latest` manifest first, then fall back
 to the bundled generated manifest at
@@ -68,6 +75,7 @@ campaign_dashboard.py    Panel campaign dashboard entrypoint
 studies_dashboard.py     Panel studies dashboard entrypoint
 apps/campaign/           Campaign dashboard notebook and components
 apps/studies/            Study dashboard notebooks and components
+apps/story/              Live Jupyter story decks
 data/generated/          Small CSVs extracted from public Markdown result tables
 data/manifests/          Generated and sample dashboard manifests
 data/schema/             Manifest JSON schema

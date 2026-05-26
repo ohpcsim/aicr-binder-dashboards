@@ -7,6 +7,9 @@ still needs production artifact wiring.
 
 - Launches two Binder entrypoints through `jupyter-panel-proxy`: the campaign
   dashboard and the studies dashboard.
+- Provides a DataLoader teaching deck at
+  `apps/story/dataloader_ddp_story.ipynb` for live JupyterLab presentation
+  with Plotly interactions and DDP validation handoff slides.
 - MyBinder build and launch were validated on 2026-05-24 from commit
   `5d0b442`, with both `/panel/campaign_dashboard` and
   `/panel/studies_dashboard` returning HTTP 200 inside the live Binder session.
@@ -33,6 +36,9 @@ still needs production artifact wiring.
   final dashboard evidence.
 - HPCG entries remain planned until results-backed public study pages and
   artifacts are finalized.
+- The story deck is DataLoader-first; DDP appears only as
+  training-validation handoff evidence. Other modules remain in the dashboard
+  views but outside the story narrative.
 - Large tarballs remain links only; the dashboard does not download or cache
   raw benchmark bundles.
 - Some module plots are generated from public Markdown tables, so provenance

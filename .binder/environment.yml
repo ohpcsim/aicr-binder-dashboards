@@ -6,4 +6,5 @@ dependencies:
   - pip
   - pip:
       - -e ..[test]
+      - jupyterlab-rise>=0.42
       - jupyter-panel-proxy>=0.2.0
