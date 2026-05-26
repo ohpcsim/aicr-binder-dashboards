@@ -42,6 +42,9 @@ still needs production artifact wiring.
   views but outside the story narrative.
 - The deck treats the input pipeline as a parallel queueing system and makes
   throughput/imbalance plot reading the central teaching path.
+- The deck references pinned public DataLoader PNG URLs. Production BinderHub
+  validation must confirm those URLs are visible to the intended audience or
+  replace them with an approved static public asset host.
 - Large tarballs remain links only; the dashboard does not download or cache
   raw benchmark bundles.
 - Some module plots are generated from public Markdown tables, so provenance

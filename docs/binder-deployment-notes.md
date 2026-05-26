@@ -21,6 +21,10 @@ prepared-input economics, DDP validation, and synthetic-input ceiling views.
 It also embeds pinned public DataLoader heatmaps, imbalance plots, candidate
 frontiers, and scale plots as first-class story slides. It is intentionally
 DataLoader-first; DDP appears only as training-validation handoff evidence.
+For production teaching sessions, verify that Binder viewers can fetch the
+pinned figure URLs from `ohpcsim/aicr-public`. If anonymous raw GitHub access is
+not available in the deployment context, publish the same PNGs through an
+approved static public asset host or use an authenticated BinderHub context.
 
 The studies dashboard fetches small public CSV/JSON artifacts from OSN or
 GitHub only when a viewer requests a preview. Large tarballs remain linked as
