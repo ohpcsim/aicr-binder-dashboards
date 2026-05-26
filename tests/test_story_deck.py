@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from apps.story.dataloader_figures import FIGURE_FILENAMES, PUBLIC_COMMIT
+from apps.story.dataloader_figures import FIGURE_FILENAMES, local_figure_url
 
 
 DECK = Path("apps/story/dataloader_ddp_story.ipynb")
@@ -80,12 +80,16 @@ def test_story_deck_has_interactive_backbone():
 
 def test_story_deck_includes_all_public_dataloader_figures():
     text = deck_text()
+    asset_files = list((DECK.parent / "assets/dataloader/figures").glob("*.png"))
 
     assert len(FIGURE_FILENAMES) == 53
-    assert PUBLIC_COMMIT in text
+    assert len(asset_files) == 53
+    assert "raw.githubusercontent.com/ohpcsim/aicr-public" not in text
 
     for filename in FIGURE_FILENAMES:
         assert filename in text
+        assert local_figure_url(filename) in text
+        assert (DECK.parent / local_figure_url(filename)).is_file()
 
     required_families = [
         "throughput-matrix",

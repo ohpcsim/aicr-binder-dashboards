@@ -49,10 +49,10 @@ extracted from public Markdown study pages. The studies dashboard can fetch
 selected CSV/JSON entries on demand and show a table, numeric profile, and
 quick chart. Large tarballs stay linked rather than downloaded.
 
-The DataLoader teaching deck embeds pinned public DataLoader figure URLs from
-`ohpcsim/aicr-public`. Validate figure visibility in the target BinderHub
-context before a production teaching session; use an approved static asset host
-if anonymous raw GitHub access is unavailable.
+The DataLoader teaching deck includes a bundled copy of the 53 public
+DataLoader PNG figures from `ohpcsim/aicr-public` at the pinned evidence commit.
+This keeps local HTML export and BinderHub rendering independent of authenticated
+access to the source evidence repository.
 
 ## Local Checks
 

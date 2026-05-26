@@ -1,16 +1,19 @@
-"""Public DataLoader figure inventory for the teaching deck."""
+"""DataLoader figure inventory for the teaching deck."""
 
 PUBLIC_REPO = "ohpcsim/aicr-public"
 PUBLIC_COMMIT = "b3e610f486b42d1363dbb0f2591a315116564498"
 FIGURE_PREFIX = "Cambridge/aicr-bench/docs/modules/dataloader/studies/figures"
+LOCAL_FIGURE_PREFIX = "assets/dataloader/figures"
 
 
-def public_figure_url(name: str) -> str:
-    """Return a pinned raw GitHub URL for a public DataLoader figure."""
-    return (
-        f"https://raw.githubusercontent.com/{PUBLIC_REPO}/{PUBLIC_COMMIT}/"
-        f"{FIGURE_PREFIX}/{name}"
-    )
+def source_figure_path(name: str) -> str:
+    """Return the source path for the public evidence figure."""
+    return f"{FIGURE_PREFIX}/{name}"
+
+
+def local_figure_url(name: str) -> str:
+    """Return the Binder-repo local URL for a bundled public DataLoader figure."""
+    return f"{LOCAL_FIGURE_PREFIX}/{name}"
 
 
 FIGURE_GROUPS = [
